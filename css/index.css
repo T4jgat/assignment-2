@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    transition: transform .2s;
+    margin-left: 2%;
+}
+
+.card img {
+    max-width: max-content;
+    border-radius: 7px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.company-name {
+    padding-right: 10%;
+}
+
+.lead-p {
+    text-align: center;
+}
