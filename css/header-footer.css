@@ -6,3 +6,12 @@
 a {
     text-decoration: none;
 }
+
+.company-name {
+    padding-right: 10%;
+}
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+}

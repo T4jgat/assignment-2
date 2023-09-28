@@ -1,0 +1,13 @@
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.signup-form {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.last-btns {
+    justify-content: space-around;
+}
