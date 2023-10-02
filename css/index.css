@@ -13,6 +13,7 @@
 .card img {
     max-width: max-content;
     border-radius: 7px;
+
 }
 
 .card:hover {
@@ -23,4 +24,8 @@
 
 .lead-p {
     text-align: center;
+}
+
+.carousel-item img {
+    border-radius: 10px;
 }

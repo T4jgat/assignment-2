@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    transition: transform .2s;
+    margin-left: 2%;
+}
+
+.card img {
+    max-width: max-content;
+    border-radius: 7px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+
+
+.lead-p {
+    text-align: center;
+}
