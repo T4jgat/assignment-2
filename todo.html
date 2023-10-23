@@ -8,88 +8,194 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
     </link>
+    <link rel="stylesheet" href="css/header-footer.css">
     <title>To-Do List</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="mt-5">To-Do List</h1>
-        <form class="mt-4">
-            <div class="mb-3">
-                <label for="new-task" class="form-label">Add Item</label>
-                <input type="text" class="form-control" id="new-task" name="new-task">
-            </div>
-            <button type="submit" class="btn btn-primary">Add</button>
-        </form>
-        <ul id="task-list" class="list-group mt-4">
-            <li class="list-group-item">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="task1" name="task1">
-                    <label class="form-check-label" for="task1">Task 1</label>
-                </div>
-                <button class="btn btn-danger delete mt-2">Delete</button>
-            </li>
-            <li class="list-group-item">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="task2" name="task2">
-                    <label class="form-check-label" for="task2">Task 2</label>
-                </div>
-                <button class="btn btn-danger delete mt-2">Delete</button>
-            </li>
-            <li class="list-group-item">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="task3" name="task3">
-                    <label class="form-check-label" for="task3">Task 3</label>
-                </div>
-                <button class="btn btn-danger delete mt-2">Delete</button>
-            </li>
-        </ul>
-        <button id="delete-completed" class="btn btn-danger mt-4">Delete Completed Tasks</button>
+    <!-- header -->
+    <div
+        class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-4  bg-white border-bottom shadow-sm header">
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="index.html">Main</a>
+            <a class="p-2 text-dark" href="catalog.html">Catalog</a>
+            <a class="p-2 text-dark" href="support.html">Support</a>
+            <a class="p-2 text-dark" href="todo.html">Self efficency</a>
+        </nav>
+        <h5 class="my-0 mr-md-auto font-weight-normal company-name">Infocygan</h5>
+        <a class="btn btn-outline-primary" href="signup.html">Sign up</a>
     </div>
+
+    <div class="content">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card rounded-3">
+                        <div class="card-body p-4 p-md-5">
+                            <h1 class="mt-5">To-Do List</h1>
+                            <form class="mt-4">
+                                <div class="mb-3">
+                                    <label for="new-task" class="form-label">Add Item</label>
+                                    <input type="text" class="form-control" id="new-task" name="new-task">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </form>
+                            <ul id="task-list" class="list-group mt-4">
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="task1" name="task1">
+                                        <label class="form-check-label" for="task1">Task 1</label>
+                                    </div>
+                                    <button class="btn btn-sm  btn-danger delete mt-2">Delete</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="task2" name="task2">
+                                        <label class="form-check-label" for="task2">Task 2</label>
+                                    </div>
+                                    <button class="btn btn-sm  btn-danger delete mt-2">Delete</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="task3" name="task3">
+                                        <label class="form-check-label" for="task3">Task 3</label>
+                                    </div>
+                                    <button class="btn btn-sm btn-danger delete mt-2">Delete</button>
+                                </li>
+                            </ul>
+                            <button id="delete-completed" class="btn btn-danger mt-4">Delete Completed Tasks</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer-container container align-items-center justify-content-center col-xl-5">
+            <input type="number" id="duration" class="form-control mb-3" placeholder="Set Timer (seconds)">
+            <button id="start" class="btn btn-primary me-2">Start</button>
+            <button id="pause" class="btn btn-secondary me-2">Pause</button>
+            <button id="reset" class="btn btn-danger me-2">Reset</button>
+            <div class="timer list-group">
+                <div class="progress list-group-item list-group-item-action"></div>
+                <span id="time-display" class="list-group-item list-group-item-action">0:00</span>
+            </div>
+        </div>
+
+        <!-- <script>
+            let interval;
+            let duration = 0;
+            let currentTime = 0;
+            const timeDisplay = document.getElementById("time-display");
+            const fill = document.querySelector(".fill");
+
+            // Event listeners for control buttons
+            document.getElementById("start").addEventListener("click", startTimer);
+            document.getElementById("pause").addEventListener("click", pauseTimer);
+            document.getElementById("reset").addEventListener("click", resetTimer);
+
+            // Function to start the timer
+            function startTimer() {
+                // Check if a valid duration is set
+                if (duration === 0) {
+                    duration = parseInt(document.getElementById("duration").value);
+                    if (isNaN(duration) || duration <= 0) {
+                        alert("Please enter a valid timer duration.");
+                        return;
+                    }
+                    timeDisplay.textContent = formatTime(duration);
+                }
+
+                // Clear any existing interval and initialize the timer
+                clearInterval(interval);
+                currentTime = duration;
+                interval = setInterval(updateTimer, 1000);
+                fill.style.animation = `fill-animation ${duration}s linear`;
+                fill.style.animationPlayState = "running";
+            }
+
+            // Function to pause the timer
+            function pauseTimer() {
+                clearInterval(interval);
+                fill.style.animationPlayState = "paused";
+            }
+
+            // Function to reset the timer
+            function resetTimer() {
+                clearInterval(interval);
+                duration = 0;
+                currentTime = 0;
+                timeDisplay.textContent = "0:00";
+                fill.style.animation = `fill-animation 0s linear`;
+                fill.style.animationPlayState = "paused";
+            }
+
+            // Function to update the timer
+            function updateTimer() {
+                if (currentTime > 0) {
+                    currentTime--;
+                    timeDisplay.textContent = formatTime(currentTime);
+                } else {
+                    clearInterval(interval);
+                }
+            }
+
+            // Function to format time in MM:SS format
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+                return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+
+            }
+
+        </script> -->
+
+    </div>
+    <!-- footer -->
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <span class="mb-2">Infocygan LLC</span>
+                <small class="d-block mb-3 text-muted">© 2023-2024</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Cool stuff</a></li>
+                    <li><a class="text-muted" href="#">Random feature</a></li>
+                    <li><a class="text-muted" href="#">Team feature</a></li>
+                    <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                    <li><a class="text-muted" href="#">Another one</a></li>
+                    <li><a class="text-muted" href="#">Last time</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Resource</a></li>
+                    <li><a class="text-muted" href="#">Resource name</a></li>
+                    <li><a class="text-muted" href="#">Another resource</a></li>
+                    <li><a class="text-muted" href="#">Final resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Team</a></li>
+                    <li><a class="text-muted" href="#">Locations</a></li>
+                    <li><a class="text-muted" href="#">Privacy</a></li>
+                    <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script>
-        // Get the form and the task list
-        const form = document.querySelector('form');
-        const taskList = document.querySelector('#task-list');
-
-        // Add a new task to the list
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const newTask = document.createElement('li');
-            const newTaskLabel = document.createElement('label');
-            const newTaskCheckbox = document.createElement('input');
-            const newTaskDeleteButton = document.createElement('button');
-            newTaskLabel.textContent = form.elements['new-task'].value;
-            newTaskCheckbox.type = 'checkbox';
-            newTaskCheckbox.classList.add('form-check-input');
-            newTaskDeleteButton.textContent = 'Delete';
-            newTaskDeleteButton.classList.add('btn', 'btn-danger', 'delete', 'mt-2');
-            newTask.appendChild(newTaskCheckbox);
-            newTask.appendChild(newTaskLabel);
-            newTask.appendChild(newTaskDeleteButton);
-            taskList.appendChild(newTask);
-            form.reset();
-        });
-
-        // Delete a task from the list
-        taskList.addEventListener('click', (event) => {
-            if (event.target.classList.contains('delete')) {
-                event.target.parentElement.remove();
-            }
-        });
-
-        // Delete all completed tasks
-        const deleteCompletedButton = document.querySelector('#delete-completed');
-        deleteCompletedButton.addEventListener('click', () => {
-            const completedTasks = taskList.querySelectorAll('li input[type="checkbox"]:checked');
-            completedTasks.forEach((task) => {
-                task.parentElement.remove();
-            });
-        });
-    </script>
+    <script src="js/todo.js"></script>
+    <script src="js/timer.js"></script>
 </body>
 
 </html>
