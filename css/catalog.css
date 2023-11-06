@@ -240,6 +240,8 @@ html {
     background-color: blue;
     color: white;
     cursor: pointer;
+    display: grid;  
+    margin: auto;  
   }
   
   .game-container {
