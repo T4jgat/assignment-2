@@ -226,3 +226,34 @@ html {
     padding-top: 150px;
     clear: both;
   }
+
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+
+
+  .open-button {
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .game-container {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+  }
+  
+  .game-container.show {
+    opacity: 1;
+  }
+  
