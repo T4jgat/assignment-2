@@ -13,6 +13,10 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/index/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/index/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/index/favicon-16x16.png">
+    <link rel="manifest" href="icons/index/site.webmanifest">
 
     <title>Document</title>
 </head>
@@ -26,9 +30,11 @@
             <a class="p-2 text-dark" href="index.html">Main</a>
             <a class="p-2 text-dark" href="catalog.html">Catalog</a>
             <a class="p-2 text-dark" href="support.html">Support</a>
+            <a class="p-2 text-dark" href="todo.html">Self efficency</a>
         </nav>
         <h5 class="my-0 mr-md-auto font-weight-normal company-name">Infocygan</h5>
-        <a class="btn btn-outline-primary" href="singup.html">Sign up</a>
+        <a class="btn btn-outline-primary" href="singup.html"><i class="fa-solid fa-user"
+                style="color: #0d6efd; margin-right: 5px;"></i>Sign up</a>
     </div>
 
     <!-- main content -->
@@ -43,17 +49,20 @@
                             <form class="px-md-2">
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1q" class="form-control" placeholder="Name" />
+                                    <input type="text" id="form3Example1q" class="form-control" placeholder="Name"
+                                        required />
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1q" class="form-control" placeholder="Surname" />
+                                    <input type="text" id="form3Example1q" class="form-control" placeholder="Surname"
+                                        required />
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1q" class="form-control"
-                                        placeholder="Username" />
+                                    <input type="text" id="form3Example1q" class="form-control" placeholder="Username"
+                                        required />
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1q" class="form-control" placeholder="Email" />
+                                    <input type="email" id="form3Example1q" class="form-control" placeholder="Email"
+                                        required />
                                 </div>
 
                                 <div class="row">
@@ -61,12 +70,12 @@
 
                                         <div class="form-outline datepicker" data-provide="datepicker-inline">
                                             <input type="text" class="form-control" id="exampleDatepicker1"
-                                                placeholder="Birth date (ex. 01.01.1991)" />
+                                                placeholder="Birth date (ex. 01.01.1991)" required />
                                         </div>
 
                                     </div>
                                     <div class="col-md-6 mb-4">
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" aria-label="Default select example" required>
                                             <option selected>Male</option>
                                             <option value="1">Female</option>
                                             <option value="2">Other</option>
@@ -77,16 +86,16 @@
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="password" id="form3Example1w" class="form-control"
-                                                placeholder="Password" />
+                                            <input type="password" id="password1" class="form-control"
+                                                placeholder="Password" required />
                                         </div>
 
                                     </div>
                                     <div class="col-md-6 mb-4">
 
                                         <div class="form-outline">
-                                            <input type="password" id="form3Example1w" class="form-control"
-                                                placeholder="Repeat password" />
+                                            <input type="password" id="password2" class="form-control"
+                                                placeholder="Repeat password" required />
                                         </div>
 
                                     </div>
@@ -109,6 +118,20 @@
             </div>
         </div>
     </div>
+    <div class="timer-container">
+        <input type="number" id="duration" placeholder="Set Timer (seconds)">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+        <div class="timer">
+            <div class="progress"></div>
+            <span id="time-display">0:00</span>
+        </div>
+    </div>
+    <script src="js/timer.js">
+
+
+    </script>
 
 
     <!-- footer -->
@@ -150,38 +173,8 @@
         </div>
     </footer>
 </body>
+<script src="js/validator.js">
+
+</script>
 
 </html>
-
-
-
-
-
-
-<!-- <div class="signup-form col-sm card align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <p class="text-center h1 mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-    <div class="input-group mb-3 input-form">
-        <input type="text" class="form-control" placeholder="Name" aria-label="Username"
-            aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3 input-form">
-        <input type="text" class="form-control" placeholder="Surname" aria-label="Username"
-            aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3 input-form">
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-            aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3 input-form">
-        <input type="text" class="form-control" placeholder="Email" aria-label="Username"
-            aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3 input-form">
-        <input type="text" class="form-control" placeholder="Password" aria-label="Username"
-            aria-describedby="basic-addon1">
-    </div>
-    <div class="input-group mb-3 input-form">
-        <input type="text" class="form-control" placeholder="Repeat password" aria-label="Username"
-            aria-describedby="basic-addon1">
-    </div>
-</div> -->
